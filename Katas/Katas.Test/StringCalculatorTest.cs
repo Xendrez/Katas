@@ -29,7 +29,23 @@ namespace Katas.Test
         [TestMethod]
         public void Should_ReturnSum_When_TwoNumbers()
         {
+            var stringCalculator = new StringCalculator();
+            var res = stringCalculator.Add("1,2");
+            Assert.AreEqual(3, res);
 
+            res = stringCalculator.Add("3,5");
+            Assert.AreEqual(8, res);
+        }
+
+        [TestMethod]
+        public void Should_ReturnSum_When_MultipleNumbers()
+        {
+            var stringCalculator = new StringCalculator();
+            var res = stringCalculator.Add("1,2,3");
+            Assert.AreEqual(6, res);
+
+            res = stringCalculator.Add("3,5,3,9");
+            Assert.AreEqual(20, res);
         }
     }
 }
