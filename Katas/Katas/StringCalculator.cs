@@ -19,8 +19,10 @@ namespace Katas
 
             if (input.Contains(","))
             {
-                var numbers = input.Split(',');
-                return Convert.ToInt32(numbers[0]) + Convert.ToInt32(numbers[1]);
+                return input.Split(',').
+                    Select(int.Parse).
+                    ToList().
+                    Sum();
             }
 
             return Convert.ToInt32(input);

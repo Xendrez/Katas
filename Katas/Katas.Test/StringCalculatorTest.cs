@@ -47,5 +47,16 @@ namespace Katas.Test
             res = stringCalculator.Add("3,5,3,9");
             Assert.AreEqual(20, res);
         }
+
+        [TestMethod]
+        public void Should_ReturnSum_When_LineBreaks()
+        {
+            var stringCalculator = new StringCalculator();
+            var res = stringCalculator.Add("1,2\n3");
+            Assert.AreEqual(6, res);
+
+            res = stringCalculator.Add("3\n5\n3,9");
+            Assert.AreEqual(20, res);
+        }
     }
 }
