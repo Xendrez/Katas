@@ -69,5 +69,13 @@ namespace Katas.Test
             res = stringCalculator.Add("//|\n3|9");
             Assert.AreEqual(12, res);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Negatives not allowed: -1, -3")]
+        public void Should_ThrowException_When_NegativeNumber()
+        {
+            var stringCalculator = new StringCalculator();
+            stringCalculator.Add("-1,2,-3");
+        }
     }
 }

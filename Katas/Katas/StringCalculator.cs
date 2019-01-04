@@ -27,7 +27,24 @@ namespace Katas
             if (input.Contains(","))
             {
                 input = input.Replace("\n", ",");
-                return input.Split(',').
+                var collection = input.Split(',');
+
+                var exceptionDescription = new StringBuilder();
+
+                foreach (var a in collection)
+                {
+                    if (Convert.ToInt32(a) < 0)
+                    {
+                        exceptionDescription = exceptionDescription.Length > 0 ?
+                        exceptionDescription.Append(", " + a) :
+                        exceptionDescription.Append(a);
+                    }
+                }
+
+                if (exceptionDescription.Length > 0)
+                    throw new ArgumentException($"Negatives not allowed: {exceptionDescription.ToString()}");
+
+                collection.
                     Select(int.Parse).
                     ToList().
                     Sum();
