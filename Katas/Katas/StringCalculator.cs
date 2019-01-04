@@ -19,6 +19,7 @@ namespace Katas
 
             if (input.Contains(","))
             {
+                input = input.Replace("\n", ",");
                 return input.Split(',').
                     Select(int.Parse).
                     ToList().
