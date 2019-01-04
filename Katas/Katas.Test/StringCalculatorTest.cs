@@ -58,5 +58,16 @@ namespace Katas.Test
             res = stringCalculator.Add("3\n5\n3,9");
             Assert.AreEqual(20, res);
         }
+
+        [TestMethod]
+        public void Should_ReturnSum_When_CustomDelimeter()
+        {
+            var stringCalculator = new StringCalculator();
+            var res = stringCalculator.Add("//;\n1;2");
+            Assert.AreEqual(3, res);
+
+            res = stringCalculator.Add("//|\n3|9");
+            Assert.AreEqual(12, res);
+        }
     }
 }

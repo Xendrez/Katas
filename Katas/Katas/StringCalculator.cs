@@ -17,6 +17,13 @@ namespace Katas
             if (string.IsNullOrEmpty(input))
                 return 0;
 
+            if (input.Contains("//"))
+            {
+                var delimiter = input[2];
+                input = input.Remove(0, 4);
+                input = input.Replace(delimiter, ',');
+            }
+
             if (input.Contains(","))
             {
                 input = input.Replace("\n", ",");
